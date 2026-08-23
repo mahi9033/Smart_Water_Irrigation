@@ -26,4 +26,5 @@ void gpio_init(void)
    // set PC13 as input for mannual irrigation
 	GPIOC->MODER &= ~(1U << 26);
     GPIOC->MODER &= ~(1U << 27);
+
 }

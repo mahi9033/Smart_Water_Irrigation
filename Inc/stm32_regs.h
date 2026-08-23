@@ -5,6 +5,8 @@
 #define PERIPH_BASE             (0x40000000UL)
 #define AHB1PERIPH_OFFSET       (0x00020000UL)
 #define AHB1PERIPH_BASE         (PERIPH_BASE + AHB1PERIPH_OFFSET)
+#define APB2PERIPH_OFFSET       (0x00010000UL)
+#define APB2PERIPH_BASE         (PERIPH_BASE + APB2PERIPH_OFFSET)
 
 /*************GPIO_ADDRESS******************/
 
@@ -21,6 +23,11 @@
 #define RCC_OFFSET              (0x00003800UL)
 
 #define RCC_BASE                (AHB1PERIPH_BASE + RCC_OFFSET)
+
+/*************ADC_ADDRESS******************/
+#define ADC1_OFFSET              (0x00002000UL)
+
+#define ADC1_BASE                (APB2PERIPH_BASE + ADC1_OFFSET)
 
 typedef struct
 {
@@ -41,28 +48,67 @@ typedef struct
 #define GPIOB        ((GPIO_TypeDef *)GPIOB_BASE)
 #define GPIOC        ((GPIO_TypeDef *)GPIOC_BASE)
 
-	typedef struct
+typedef struct
 	{
 	    volatile uint32_t CR;
 	    volatile uint32_t PLLCFGR;
 	    volatile uint32_t CFGR;
 	    volatile uint32_t CIR;
-
 	    volatile uint32_t AHB1RSTR;
 	    volatile uint32_t AHB2RSTR;
-	    volatile uint32_t AHB3RSTR;
-	    volatile uint32_t RESERVED0;
-
 	    volatile uint32_t APB1RSTR;
 	    volatile uint32_t APB2RSTR;
-	    volatile uint32_t RESERVED1;
-	    volatile uint32_t RESERVED2;
-
 	    volatile uint32_t AHB1ENR;
+	    volatile uint32_t AHB2ENR;
+	    volatile uint32_t APB1ENR;
+	    volatile uint32_t APB2ENR;
+	    volatile uint32_t AHB1LPENR;
+	    volatile uint32_t AHB2LPENR;
+	    volatile uint32_t APB1LPENR;
+	    volatile uint32_t APB2LPENR;
+	    volatile uint32_t BDCR;
+	    volatile uint32_t CSR;
+	    volatile uint32_t SSCGR;
+	    volatile uint32_t PLLI2SCFGR;
+	    volatile uint32_t DCKCFGR;;
 
-	} RCC_TypeDef;
+	}RCC_TypeDef;
+#define RCC            ((RCC_TypeDef*)RCC_BASE)
 
-	#define RCC ((RCC_TypeDef *)RCC_BASE)
+typedef struct{
+
+		volatile uint32_t SR;
+		volatile uint32_t CR1;
+		volatile uint32_t CR2;
+		volatile uint32_t SMPR1;
+		volatile uint32_t SMPR2;
+		volatile uint32_t JOFR;
+		volatile uint32_t HTR;
+		volatile uint32_t LTR[4];
+		volatile uint32_t SQR1;
+		volatile uint32_t SQR2;
+		volatile uint32_t SQR3;
+		volatile uint32_t JSQR;
+		volatile uint32_t JDR[4];
+		volatile uint32_t DR;
+		volatile uint32_t CCR;
+
+
+	}ADC_TypeDef;
+
+#define ADC1          ((ADC_TypeDef *)ADC1_BASE)
 
 
 #endif /* STM32_REGS_H_ */
+
+
+
+
+
+
+
+
+
+
+
+

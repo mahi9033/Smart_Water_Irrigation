@@ -24,10 +24,17 @@
 
 #define RCC_BASE                (AHB1PERIPH_BASE + RCC_OFFSET)
 
-/*************ADC_ADDRESS******************/
+/*************ADC_ADDRESS*******************/
 #define ADC1_OFFSET              (0x00002000UL)
 
 #define ADC1_BASE                (APB2PERIPH_BASE + ADC1_OFFSET)
+
+/*************I2C_ADDRESS*******************/
+#define I2C1_OFFSET              (0x00005400UL)
+
+#define I2C1_BASE                (APB2PERIPH_BASE + I2C1_OFFSET)
+
+
 
 typedef struct
 {
@@ -97,6 +104,25 @@ typedef struct{
 	}ADC_TypeDef;
 
 #define ADC1          ((ADC_TypeDef *)ADC1_BASE)
+
+
+
+	typedef struct{
+
+			volatile uint32_t CR1;
+			volatile uint32_t CR2;
+			volatile uint32_t OAR1;
+			volatile uint32_t OAR2;
+			volatile uint32_t DR;
+			volatile uint32_t SR1;
+			volatile uint32_t SR2;
+			volatile uint32_t CCR;
+			volatile uint32_t TRISE;
+			volatile uint32_t FLTR;
+
+		}I2C1_TypeDef;
+
+	#define I2C1          ((I2C1_TypeDef *)I2C1_BASE)
 
 
 #endif /* STM32_REGS_H_ */

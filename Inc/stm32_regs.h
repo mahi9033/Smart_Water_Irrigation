@@ -36,6 +36,10 @@
 
 
 
+#define SYSTICK_BASE    0xE000E010UL
+
+
+
 typedef struct
 {
         volatile uint32_t MODER;
@@ -123,6 +127,17 @@ typedef struct{
 		}I2C1_TypeDef;
 
 	#define I2C1          ((I2C1_TypeDef *)I2C1_BASE)
+
+		typedef struct
+		{
+		    volatile uint32_t CTRL;
+		    volatile uint32_t LOAD;
+		    volatile uint32_t VAL;
+		    volatile uint32_t CALIB;
+		} SysTick_TypeDef;
+
+#define SysTick         ((SysTick_TypeDef *)SYSTICK_BASE)
+
 
 
 #endif /* STM32_REGS_H_ */

@@ -1,5 +1,6 @@
 #include "stm32_regs.h"
 #include <stdint.h>
+#include <i2c.h>
 
 #define GPIOBEN              (1U << 1)
 #define I2C1EN               (1U << 21)

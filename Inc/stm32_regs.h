@@ -34,9 +34,15 @@
 
 #define I2C1_BASE                (APB2PERIPH_BASE + I2C1_OFFSET)
 
-
+/************SYSTICK_BASE ******************/
 
 #define SYSTICK_BASE    0xE000E010UL
+
+/************Watchdog_BASE ******************/
+
+
+#define IWDG_BASE       0x40003000UL
+
 
 
 
@@ -138,6 +144,16 @@ typedef struct{
 
 #define SysTick         ((SysTick_TypeDef *)SYSTICK_BASE)
 
+
+		typedef struct
+		{
+		    volatile uint32_t KR;
+		    volatile uint32_t PR;
+		    volatile uint32_t RLR;
+		    volatile uint32_t SR;
+		} IWDG_TypeDef;
+
+#define IWDG            ((IWDG_TypeDef *)IWDG_BASE)
 
 
 #endif /* STM32_REGS_H_ */

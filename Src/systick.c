@@ -1,5 +1,6 @@
 #include "systick.h"
 #include "stm32_regs.h"
+#include "lcd.h"
 
 #define SYSTICK_ENABLE       (1U << 0)
 #define SYSTICK_CLKSOURCE    (1U << 2)

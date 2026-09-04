@@ -24,7 +24,6 @@ static void lcd_send_nibble(uint8_t nibble, uint8_t rs)
     i2c_write_byte(LCD_I2C_ADDRESS, data | LCD_EN);
 
     systick_delay_ms(1);
-
     /* EN = 0 */
     i2c_write_byte(LCD_I2C_ADDRESS, data);
 

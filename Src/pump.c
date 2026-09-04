@@ -3,6 +3,8 @@
 
 #define GPIOAEN        (1 << 0)
 #define PUMP_ON        (1 << 6)
+
+
 void pump_on(void){
 	RCC->AHB1ENR |= GPIOAEN;
 
